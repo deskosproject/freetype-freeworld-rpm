@@ -1,7 +1,7 @@
 Summary: A free and portable font rendering engine
 Name: freetype-freeworld
 Version: 2.5.0.1
-Release: 4%{?dist}
+Release: 5%{?dist}
 License: (FTL or GPLv2+) and BSD and MIT and Public Domain and zlib with acknowledgement
 Group: System Environment/Libraries
 URL: http://www.freetype.org
@@ -97,6 +97,9 @@ rm -rf $RPM_BUILD_ROOT
 %config(noreplace) %{_sysconfdir}/ld.so.conf.d/%{name}-%{_arch}.conf
 
 %changelog
+* Tue Jun 14 2016 Ricardo Arguello <rarguello@deskosproject.org> - 2.5.0.1-5
+- Rebuilt for DeskOS
+
 * Tue Mar 11 2014 Kevin Kofler <Kevin@tigcc.ticalc.org> 2.5.0.1-4
 - Add freetype-2.5.0-CVE-2014-2240.patch from Fedora freetype (rh#1074647)
     (Return when `hintMask' is invalid.)

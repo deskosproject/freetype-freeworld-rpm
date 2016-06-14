@@ -1,0 +1,6 @@
+= DeskOS: freetype-freeworld RPM
+
+This is the _freetype-freeworld_ RPM package for the *DeskOS* operating system.
+
+Upstream comes from the NUX Dextop 7:
+http://li.nux.ro/download/nux/dextop/el7/SRPMS/freetype-freeworld-2.5.0.1-4.el7.nux.src.rpm[freetype-freeworld-2.5.0.1-4.el7.nux.src.rpm]
