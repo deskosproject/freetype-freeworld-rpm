@@ -1,11 +1,12 @@
 Summary: A free and portable font rendering engine
 Name: freetype-freeworld
 Version: 2.5.0.1
-Release: 5%{?dist}
+Release: 6%{?dist}
 License: (FTL or GPLv2+) and BSD and MIT and Public Domain and zlib with acknowledgement
 Group: System Environment/Libraries
 URL: http://www.freetype.org
 Source:  http://download.savannah.gnu.org/releases/freetype/freetype-%{version}.tar.bz2
+Source1: xft-settings.sh
 
 Patch21:  freetype-2.3.0-enable-spr.patch
 
@@ -83,6 +84,9 @@ mkdir -p $RPM_BUILD_ROOT%{_sysconfdir}/ld.so.conf.d
 echo "%{_libdir}/%{name}" \
      >$RPM_BUILD_ROOT%{_sysconfdir}/ld.so.conf.d/%{name}-%{_arch}.conf
 
+# install xft-settings.sh
+install -p -m 755 -D %{SOURCE1} $RPM_BUILD_ROOT%{_sysconfdir}/X11/xinit/xinitrc.d/xft-settings.sh
+
 %clean
 rm -rf $RPM_BUILD_ROOT
 
@@ -95,8 +99,12 @@ rm -rf $RPM_BUILD_ROOT
 %{_libdir}/%{name}
 %doc ChangeLog README docs/LICENSE.TXT docs/FTL.TXT docs/GPLv2.TXT
 %config(noreplace) %{_sysconfdir}/ld.so.conf.d/%{name}-%{_arch}.conf
+%{_sysconfdir}/X11/xinit/xinitrc.d/xft-settings.sh
 
 %changelog
+* Wed Aug 03 2016 Ricardo Arguello <rarguello@deskosproject.org> - 2.5.0.1-6
+- Added xft-settings.sh script to enable lcddefault
+
 * Tue Jun 14 2016 Ricardo Arguello <rarguello@deskosproject.org> - 2.5.0.1-5
 - Rebuilt for DeskOS
 
